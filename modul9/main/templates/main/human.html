@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Список сотрудников
+
+{% endblock %}
+
+
+{% block content %}
+	<header>
+			<p><a href="{% url 'index' %}">Главная страница</a></p>
+			<h1><p>Список сотудников</p></h1> 
+			<a href="{% url 'create' %}">Добавить сотрудника</a>        
+	</header>
+		
+	
+	<div align="center">
+	<h1> Сотрудники </h1>
+		
+	{% for i in name %}	
+		<h3>{{ i.name }} {{ i.surname }} {{ i.mail }} {{ i.telephone }}</h3>
+		
+	{% endfor %}
+	</div>
+{% endblock %}

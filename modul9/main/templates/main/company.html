@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Список компаний
+
+{% endblock %}
+
+
+{% block content %}
+	<header>
+			<p><a href="{% url 'index' %}">Главная страница</a></p>
+			<h1><p>Список компаний</p></h1> 
+			<a href="{% url 'create_company' %}">Добавить компанию</a>        
+	</header>
+		
+	
+	<div align="center">
+	<h1> Компании </h1>
+		
+	{% for i in name_company %}	
+		<h3>Имя компании:<i> {{ i.name_company }}</i> Список домов:<i> {{  i.list_home }}</i></h3>
+		
+	{% endfor %}
+	</div>
+{% endblock %}

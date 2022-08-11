@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Создание сотрудника
+
+{% endblock %}
+	         		
+
+{% block content %}
+	<a href="{% url 'index' %}">Главная страница</a> 
+	<h1>Создать пользователя</h1>	
+	<form method="post">
+		{% csrf_token %}
+		{{ form.name }}<br>
+		{{ form.surname }}<br>
+		{{ form.mail }}<br>
+		{{ form.telephone }}<br>
+
+
+		<button type="submit" class="btn btn-succes">Добавить</button>
+		<span>{{ error }}</span>
+
+		
+	</form>
+
+	
+{% endblock %}

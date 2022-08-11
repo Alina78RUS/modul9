@@ -1,0 +1,14 @@
+{% extends 'main/base.html' %} 
+{% block content %}
+	<a href="{% url 'index' %}">Главная страница</a> 
+	<h2>Регистрация</h2>
+	<form method="post">
+		{% csrf_token %}
+		{{ form.as_p }}
+		{{ form.name }}<br>
+		{{ form.surname }}<br>
+		{{ form.mail }}<br>
+		{{ form.telephone }}<br>
+		<button type="submit" >Зарегистрировать</button>
+	</form>
+{% endblock %}

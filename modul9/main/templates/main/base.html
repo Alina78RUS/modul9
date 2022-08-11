@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title> {% block title %} Главная{% endblock %} :: Главная страница</title>
+	</head>
+	<header>
+			<h1><p></p></h1>
+        
+	</header>
+	<body> 
+		
+		{% if user.is_authenticated %}
+			<p>Приветствую {{ user.username }}!</p>
+              
+            <p><a href="{% url 'human' %}">Список сотрудников</a></p> 
+            <p><a href="{% url 'company' %}">Список компаний</a></p>       		      		
+			<p><a href="{% url 'logout' %}">Выйти из профиля</a></p>
+			
+			
+		{% else %}
+			<p>Здравствуй гость</p>
+			<div class="nav-right">
+          		<a href="{% url 'login' %}">Войти</a>          		
+          		<p><a href="{% url 'signup' %}">Зарегистрироваться</a></p>         		
+
+			</div>
+		{% endif %}
+		
+		<section>
+		{% block content %}
+		{% endblock %}
+		</section>
+	
+	</body>
+	
+</html>

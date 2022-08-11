@@ -1,0 +1,23 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Создание компании
+
+{% endblock %}
+	         		
+
+{% block content %}
+	<a href="{% url 'company' %}">Главная страница</a> 
+	<h1>Создать компании</h1>	
+	<form method="post">
+		{% csrf_token %}
+		{{ form.name_company }}<br>
+		{{ form.list_home }}<br>
+		<button type="submit" class="btn btn-succes">Добавить компанию</button>
+		<span>{{ error }}</span>
+
+		
+	</form>
+
+	
+{% endblock %}
